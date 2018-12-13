@@ -25,6 +25,8 @@ namespace WerewolfClient
         private bool _actionActivated;
         private string _myRole;
         private bool _isDead;
+        private bool _isChat = false;
+        private bool DorN = false;
         private List<Player> players = null;
         public MainForm()
         {
@@ -44,6 +46,9 @@ namespace WerewolfClient
             EnableButton(BtnVote, false);
             _myRole = null;
             _isDead = false;
+            GBChat.Visible = false;
+            //TbChatBox.Visible = false;
+            //textBox2.Visible = false;
         }
 
         private void OnTimerEvent(object sender, EventArgs e)
@@ -215,11 +220,13 @@ namespace WerewolfClient
                         AddChatMessage( "Switch to day time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         _currentPeriod = Game.PeriodEnum.Day;
                         LBPeriod.Text = "Day time of";
+                        DorN = true;
                         break;
                     case EventEnum.SwitchToNightTime:
                         AddChatMessage( "Switch to night time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         _currentPeriod = Game.PeriodEnum.Night;
                         LBPeriod.Text = "Night time of";
+                        DorN = false;
                         break;
                     case EventEnum.UpdateDay:
                         // TODO  catch parse exception here
@@ -232,6 +239,28 @@ namespace WerewolfClient
                         _currentTime = int.Parse(tempTime);
                         LBTime.Text = tempTime;
                         UpdateAvatar(wm);
+                        if (_isChat)
+                        {
+                            AddChatMessage(textBox2.ToString());
+                            textBox2.Text = "";
+                            _isChat = false;
+                        }
+                        if (DorN)
+                        {
+                            TbChatBox.BackColor = Color.White;
+                            TbChatBox.ForeColor = Color.Black;
+                            textBox2.BackColor = Color.White;
+                            textBox2.ForeColor = Color.Black;
+                            this.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("D" + (_currentTime + 1));
+                        }
+                        else
+                        {
+                            TbChatBox.BackColor = Color.Black;
+                            TbChatBox.ForeColor = Color.White;
+                            textBox2.BackColor = Color.Black;
+                            textBox2.ForeColor = Color.White;
+                            this.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("N" + (_currentTime + 1));
+                        }                        
                         break;
                     case EventEnum.Vote:
                         if (wm.EventPayloads["Success"] == WerewolfModel.TRUE)
@@ -283,6 +312,9 @@ namespace WerewolfClient
             WerewolfCommand wcmd = new WerewolfCommand();
             wcmd.Action = CommandEnum.JoinGame;
             controller.ActionPerformed(wcmd);
+            GBChat.Visible = true;
+            //TbChatBox.Visible = true;
+            //textBox2.Visible = true;
         }
 
         private void BtnVote_Click(object sender, EventArgs e)
@@ -360,6 +392,20 @@ namespace WerewolfClient
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _isChat = true;
+            }
+        }
+
+        private void NoteBtn_Click(object sender, EventArgs e)
+        {
+            NoteForm N = new NoteForm();
+            N.ShowDialog();
         }
     }
 }

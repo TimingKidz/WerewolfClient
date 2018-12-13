@@ -60,6 +60,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="NoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteForm.Designer.cs">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View.cs" />
@@ -102,13 +108,73 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\N30.jpg" />
+    <None Include="Resources\N29.jpg" />
+    <None Include="Resources\N28.jpg" />
+    <None Include="Resources\N27.jpg" />
+    <None Include="Resources\N26.jpg" />
+    <None Include="Resources\N25.jpg" />
+    <None Include="Resources\N24.jpg" />
+    <None Include="Resources\N23.jpg" />
+    <None Include="Resources\N22.jpg" />
+    <None Include="Resources\N21.jpg" />
+    <None Include="Resources\N20.jpg" />
+    <None Include="Resources\N19.jpg" />
+    <None Include="Resources\N18.jpg" />
+    <None Include="Resources\N17.jpg" />
+    <None Include="Resources\N16.jpg" />
+    <None Include="Resources\N15.jpg" />
+    <None Include="Resources\N14.jpg" />
+    <None Include="Resources\N13.jpg" />
+    <None Include="Resources\N12.jpg" />
+    <None Include="Resources\N11.jpg" />
+    <None Include="Resources\N10.jpg" />
+    <None Include="Resources\N9.jpg" />
+    <None Include="Resources\N8.jpg" />
+    <None Include="Resources\N7.jpg" />
+    <None Include="Resources\N6.jpg" />
+    <None Include="Resources\N5.jpg" />
+    <None Include="Resources\N4.jpg" />
+    <None Include="Resources\N3.jpg" />
+    <None Include="Resources\N2.jpg" />
+    <None Include="Resources\N1.jpg" />
+    <None Include="Resources\D1.jpg" />
+    <None Include="Resources\D2.jpg" />
+    <None Include="Resources\D3.jpg" />
+    <None Include="Resources\D4.jpg" />
+    <None Include="Resources\D5.jpg" />
+    <None Include="Resources\D6.jpg" />
+    <None Include="Resources\D7.jpg" />
+    <None Include="Resources\D8.jpg" />
+    <None Include="Resources\D9.jpg" />
+    <None Include="Resources\D10.jpg" />
+    <None Include="Resources\D11.jpg" />
+    <None Include="Resources\D12.jpg" />
+    <None Include="Resources\D13.jpg" />
+    <None Include="Resources\D14.jpg" />
+    <None Include="Resources\D15.jpg" />
+    <None Include="Resources\D16.jpg" />
+    <None Include="Resources\D17.jpg" />
+    <None Include="Resources\D18.jpg" />
+    <None Include="Resources\D19.jpg" />
+    <None Include="Resources\D20.jpg" />
+    <None Include="Resources\D21.jpg" />
+    <None Include="Resources\D22.jpg" />
+    <None Include="Resources\D23.jpg" />
+    <None Include="Resources\D24.jpg" />
+    <None Include="Resources\D25.jpg" />
+    <None Include="Resources\D26.jpg" />
+    <None Include="Resources\D27.jpg" />
+    <None Include="Resources\D28.jpg" />
+    <None Include="Resources\D29.jpg" />
+    <None Include="Resources\D30.jpg" />
     <Content Include="Resources\Icon_alpha_werewolf.png" />
     <Content Include="Resources\Icon_aura_seer.png" />
     <Content Include="Resources\Icon_bodyguard.png" />
     <Content Include="Resources\Icon_doctor.png" />
     <Content Include="Resources\Icon_fool.png" />
     <Content Include="Resources\Icon_gunner.png" />
-    <Content Include="Resources\Icon_head_hunter.png" />
+    <None Include="Resources\Icon_head_hunter.png" />
     <Content Include="Resources\Icon_jailer.png" />
     <Content Include="Resources\Icon_medium.png" />
     <Content Include="Resources\Icon_priest.png" />
